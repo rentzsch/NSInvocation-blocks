@@ -4,7 +4,7 @@ Inspired by [Jonathan Wight's `CInvocationGrabber`](http://toxicsoftware.com/gra
 
 Let's have a bake-off!
 
-**Manually:**
+**Manual:**
 
 	NSInvocation *theInvocation = [NSInvocation invocationWithMethodSignature:[theString methodSignatureForSelector:@selector(insertString:atIndex:)]];
 	[theInvocation setSelector:@selector(insertString:atIndex:)];
@@ -16,7 +16,7 @@ Let's have a bake-off!
 
 *Ick.*
 
-**`CInvocationGrabber`:**
+**CInvocationGrabber:**
 
 	CInvocationGrabber *theGrabber = [CInvocationGrabber invocationGrabber];
 	[[theGrabber prepareWithInvocationTarget:theString] insertString:@"Hello World" atIndex:42];
@@ -24,7 +24,7 @@ Let's have a bake-off!
 
 *Much nicer.*
 
-**`NSInvocation+blocks`**:
+**NSInvocation+blocks:**
 
 	NSInvocation *theInvocation = [NSInvocation jr_invocationWithTarget:theString block:^(id theString){
 		[theString insertString:@"Hello World" atIndex:42];
