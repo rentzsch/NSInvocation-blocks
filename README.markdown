@@ -1,12 +1,12 @@
 # NSInvocation+blocks
 
-Inspired by [Jonathan Wight's `CInvocationGrabber`](http://toxicsoftware.com/grab-that-invocation/) and [Dave Dribin's `DDInvocationGrabber`](http://www.dribin.org/dave/blog/archives/2008/05/22/invoke_on_main_thread/), I realized Objective-C's new support for blocks could make generating `NSInvocation`s *even easier*.
+Inspired by [Jonathan Wight's `CInvocationGrabber`](http://toxicsoftware.com/grab-that-invocation/) and [Dave Dribin's `DDInvocationGrabber`](http://www.dribin.org/dave/blog/archives/2008/05/22/invoke_on_main_thread/), I realized Objective-C's newish support for blocks could make generating `NSInvocation`s *even easier*.
 
 Let's have a bake-off!
 
 **Manually:**
 
-	NSInvocation *theInvocation = [NSInvocation invocationWithMethodSignature:[theString methodSignatureForSelector:@selector	(insertString:atIndex:)]];
+	NSInvocation *theInvocation = [NSInvocation invocationWithMethodSignature:[theString methodSignatureForSelector:@selector(insertString:atIndex:)]];
 	[theInvocation setSelector:@selector(insertString:atIndex:)];
 	[theInvocation setTarget:theString];
 	NSString *theFirstArgument = "Hello World";
