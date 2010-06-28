@@ -39,7 +39,7 @@
 
 @implementation NSInvocation (jr_block)
 
-+ (id)jr_invocationWithTarget:(id)target_ block:(void (^)(id target))block_ {
++ (id)jr_invocationWithTarget:(id)target_ block:(void (^)())block_ {
     JRInvocationGrabber *grabber = [[[JRInvocationGrabber alloc] initWithTarget:target_] autorelease];
     block_(grabber);
     return grabber.invocation;

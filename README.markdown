@@ -26,7 +26,7 @@ Let's have a bake-off!
 
 **NSInvocation+blocks:**
 
-	NSInvocation *theInvocation = [NSInvocation jr_invocationWithTarget:theString block:^(id theString){
+	NSInvocation *theInvocation = [NSInvocation jr_invocationWithTarget:theString block:^(){
 		[theString insertString:@"Hello World" atIndex:42];
 	}];
 
