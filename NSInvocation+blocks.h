@@ -9,11 +9,11 @@
 /*
     Usage example:
  
-    NSInvocation *invocation = [NSInvocation jr_invocationWithTarget:myObject block:^(){
+    NSInvocation *invocation = [NSInvocation jr_invocationWithTarget:myObject block:^(id myObject){
         [myObject someMethodWithArg:42.0];
     }];
  */
 
-+ (id)jr_invocationWithTarget:(id)target block:(void (^)())block;
++ (id)jr_invocationWithTarget:(id)target block:(void (^)(id target))block;
 
 @end
