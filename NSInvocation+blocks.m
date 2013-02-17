@@ -29,18 +29,24 @@
     self.invocation = invocation_;
 }
 
+#if !__has_feature(objc_arc)
 - (void)dealloc {
     self.target = nil;
     self.invocation = nil;
     [super dealloc];
 }
+#endif
+
 @end
 
 
 @implementation NSInvocation (jr_block)
 
 + (id)jr_invocationWithTarget:(id)target_ block:(void (^)(id target))block_ {
-    JRInvocationGrabber *grabber = [[[JRInvocationGrabber alloc] initWithTarget:target_] autorelease];
+    JRInvocationGrabber *grabber = [[JRInvocationGrabber alloc] initWithTarget:target_];
+#if !__has_feature(objc_arc)
+    [grabber autorelease];
+#endif
     block_(grabber);
     return grabber.invocation;
 }
